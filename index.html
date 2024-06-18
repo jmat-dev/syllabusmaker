@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syllabus Formatter</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <div class="navbar">
+        <h1>Syllabus Formatter</h1>
+        <!-- You can add additional navbar items here if needed -->
+    </div>
+    <form id="my-form" method="POST">
+    <div id="form-selector">
+        <label for="formType" style="color:white">Select Syllabus Type:</label>
+        <select name="formType" id="formType">
+            <option value="" selected disabled hidden>Select</option>
+            <option value="TIC">TIC</option>
+            <option value="TIC&PIL">TIC&PIL</option>
+            <option value="PIL" disabled>PIL</option>
+            <option value="TIC&H" disabled>TIC&H</option>
+            <option value="Workshop" disabled>Workshop</option>
+        </select>
+    </div>
+
+    <div id="form-container" style="display: none;">
+        
+         
+            <label for="Department">Department</label>
+            <select name="Department" id="Department">
+                <option selected disabled hidden>select</option>
+                <option value="B.Des">B.Des</option>
+                <option value="CE">CE</option>
+                <option value="CSE">CSE</option>
+                <option value="CHE">CHE</option>
+                <option value="ECE">ECE</option>
+                <option value="ECE&CS">ECE&CS</option>
+                <option value="ECE&VLSI">ECE&VLSI</option>
+                <option value="EEE">EEE</option>
+                <option value="FT">FT</option>
+                <option value="IMCA">IMCA</option>
+                <option value="ME">ME</option>
+                <option value="MCA">MCA</option>
+                <option value="MBA">MBA</option>
+                <option value="ROBOTICS">ROBOTICS</option>
+            </select>
+            <label for="Year">Year</label>
+            <select name="Year" id="Year">
+                <option selected disabled hidden>select</option>
+                <option value="I">I</option>
+                <option value="II">II</option>
+                <option value="III">III</option>
+                <option value="IV">IV</option>
+            </select>
+            <label for="Semester">Semester</label>
+            <select name="Semester" id="Semester">
+                <option selected disabled hidden>select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+            
+            <input name="CourseName" type="text" placeholder="Course Name" required><br>
+            <input name="CourseCode" type="text" placeholder="Course Code" required><br>
+            <input name="CourseCredit" type="text" placeholder="Course Credit" required><br>
+            <input name="CourseCategory" type="text" placeholder="Course Category" required><br>
+            <input name="L-T-P" id="L-T-P" type="text" placeholder="L-T-P-H-Z:" required><br>
+            <input name="PreRequisite" type="text" placeholder="Pre requisite" required><br>
+            <input name="YearofIntroduction" type="text" placeholder="Year of Introduction & Syllabus Version" required><br>
+            <label for="CourseObjectives">Course Objectives:</label>
+            <select name="CourseObjectives" id="CourseObjectives" required>
+                <option value="select" selected disabled hidden>select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select><br>
+            <div id="courseObjectivesContainer"></div><br>
+            <label for="CourseOutcomes">Course Outcomes:</label>
+            <select name="CourseOutcomes" id="CourseOutcomes" required>
+                <option value="select" selected disabled hidden>select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select><br>
+            <div id="courseOutcomesContainer"></div><br>
+            <!-- COPO mapping grid -->
+            <table id="coPoMappingGrid">
+                <!-- Grid will be populated dynamically -->
+            </table>
+            <!-- COPSO mapping grid -->
+            <table id="copSoMappingGrid">
+                <!-- Grid will be populated dynamically -->
+            </table>
+            <label for="CourseClock">Course Implementation Clock:</label>
+            <table name="CourseClock" id="CourseClock" border="1" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>No of Hours</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Zeroth Module</td>
+                        <td><input type="text" name="zerothModuleHours" value="1" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>Course content delivery hours [12 x (Lecture + Tutorial) credits] Hrs.</td>
+                        <td><input type="number" name="courseContentDeliveryHours"></td>
+                    </tr>
+                    <tr>
+                        <td>Internal Test (2 Assessment Tests of one and half Hr. duration) 3 Hrs.</td>
+                        <td><input type="number" name="internalTestHours"></td>
+                    </tr>
+                    <tr>
+                        <td>Total No. of Hours</td>
+                        <td><input type="number" name="totalHours" readonly></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div >
+                <label for="zerothModule">Zeroth Module:</label><br>
+                <textarea name="zerothModule" id="zerothModule" rows="6" cols="50" required placeholder="Module 0 Contents"></textarea><br>
+            <label for="ModuleCount">Module Count:</br>
+            <select name="ModuleCount" id="ModuleCount" required>
+                <option value="select" selected disabled hidden>select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select><br>
+            <div id="moduleContainer"></div><br>
+            <label for="TextbookCount">Textbook Count:</label>
+            <select name="TextbookCount" id="TextbookCount" required>
+                <option value="select" selected disabled hidden>select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select><br>
+            <div id="textbookContainer"></div><br>
+            <label for="ReferenceCount">Reference Count:</label>
+            <select name="ReferenceCount" id="ReferenceCount" required>
+                <option value="select" selected disabled hidden>select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select><br>
+            <div id="referenceContainer"></div><br>
+            <!-- Course Plan grid -->
+            <h2>Course Plan Grid:</h2>
+            <table id="coursePlanGrid">
+                <tr>
+                    <th>Module</th>
+                    <th>Topic</th>
+                    <th>Course Outcome</th>
+                    <th>Duration (Hrs)</th>
+                </tr>
+            </table>
+            <button type="button" id="addRowBtn">Add Row</button><br><br>
+
+            <!-- TIC & PIL Table -->
+            <div id="tic-pil-table" style="display: none;">
+                <h2>TIC & PIL Exercises and Case Studies</h2>
+                <table id="exercisesTable">
+                   
+                        <tr>
+                            <th style="width:70%">A List of Exercises/ A Concept Simulations / A Engineering Simulations / B Detailed
+                                Simulation-Based Engineering Case Studies.
+                                A Minimum-8 &amp; Maximum-12 Exercises/simulations
+                                B Minimum-2 &amp; Maximum-4 case studies</th>
+                            <th>CO</th>
+                        </tr>
+           
+                    <!-- <tbody>
+                         Rows will be added dynamically 
+                    </tbody> -->
+                </table>
+                <button type="button" id="addExerciseRowBtn">Add Exercise/Case Study</button><br><br>
+            </div>
+            <label for="preparedby">Syllabus Prepared By:</label><br>
+            <input type="text" name="preparedBy" id="preparedBy" placeholder="Er/Dr Name,Designation,Department" required><br>
+            <button type="submit">Submit</button>
+            <p style="text-align:center">Please wait a few seconds after clicking submit.</p>
+        </form>
+    </div>
+    
+    <div class="footer">
+        powered by <a href="https://juzzmat.github.io/" style="color: white; text-decoration: none;">Dept. of CSE</a>
+    </div>
+
+    <script>
+        document.getElementById('formType').addEventListener('change', function() {
+            const selectedValue = this.value;
+            const formContainer = document.getElementById('form-container');
+            const ticPilTable = document.getElementById('tic-pil-table');
+
+            if (selectedValue) {
+                formContainer.style.display = 'block';
+                if (selectedValue === 'TIC&PIL') {
+                    ticPilTable.style.display = 'block';
+                } else {
+                    ticPilTable.style.display = 'none';
+                }
+            } else {
+                formContainer.style.display = 'none';
+                ticPilTable.style.display = 'none';
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Script loaded'); // Debugging line
+            var addExerciseRowBtn = document.getElementById('addExerciseRowBtn');
+            if (!addExerciseRowBtn) {
+                console.error('Button not found!');
+                return;
+            }
+            
+            addExerciseRowBtn.addEventListener('click', function() {
+                console.log('Button clicked'); // Debugging line
+                createExercisePlan();
+            });
+        
+            function createExercisePlan() {
+                var table = document.getElementById('exercisesTable');
+                if (!table) {
+                    console.error('Table not found!');
+                    return;
+                }
+                
+                var newRow = table.insertRow(table.rows.length);
+                console.log('Adding new row:', table.rows.length); // Debugging line
+                newRow.innerHTML = '<td><textarea name="ExerciseTitle_' + (table.rows.length - 1) + '" placeholder="Experiment Details" required rows="3" cols="50"></textarea></td>' +
+                                   '<td><textarea name="ExerciseCO_' + (table.rows.length - 1) + '" placeholder="CO Mapped" required rows="3" cols="50"></textarea></td>';
+            }
+        });
+       
+       
+    </script>
+     <script src="script.js" ></script>
+</body>
+</html>
